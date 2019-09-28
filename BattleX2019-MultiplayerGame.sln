@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleX2019-MultiplayerGame", "BattleX2019-MultiplayerGame\BattleX2019-MultiplayerGame.csproj", "{39ED2899-D695-4517-A518-1BBB2C1E39DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer", "GameServer\GameServer.csproj", "{EAF2A45A-CE1F-45B7-852D-F1540BAB7E5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameClient", "GameClient\GameClient.csproj", "{EE75143F-FEE2-49E1-810C-F31774C03D81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39ED2899-D695-4517-A518-1BBB2C1E39DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39ED2899-D695-4517-A518-1BBB2C1E39DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39ED2899-D695-4517-A518-1BBB2C1E39DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39ED2899-D695-4517-A518-1BBB2C1E39DC}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E0E03D39-75D1-4FB6-9EFE-59F999B55E13}
+		{EAF2A45A-CE1F-45B7-852D-F1540BAB7E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF2A45A-CE1F-45B7-852D-F1540BAB7E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF2A45A-CE1F-45B7-852D-F1540BAB7E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF2A45A-CE1F-45B7-852D-F1540BAB7E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE75143F-FEE2-49E1-810C-F31774C03D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE75143F-FEE2-49E1-810C-F31774C03D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE75143F-FEE2-49E1-810C-F31774C03D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE75143F-FEE2-49E1-810C-F31774C03D81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

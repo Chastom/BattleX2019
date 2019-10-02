@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using GameServer.Models;
+using System.Drawing;
 
 namespace GameClient
 {
@@ -47,6 +48,21 @@ namespace GameClient
                 players = await response.Content.ReadAsAsync<ICollection<Player>>();
             }
             return players;
+        }
+
+        static async Task<ICollection<string>> GetAllValuesAsync(string path)
+        {
+            Console.WriteLine("Atejome pasifetchinti valuesus ir nupiesti grida!");
+            ICollection<string> values = null;
+            HttpResponseMessage response = await client.GetAsync(path + "api/values");
+            if (response.IsSuccessStatusCode)
+            {
+                values = await response.Content.ReadAsAsync<ICollection<string>>();
+            }
+
+
+
+            return values;
         }
 
         static async Task<Player> GetPlayerAsync(string path)
@@ -99,10 +115,11 @@ namespace GameClient
             RunAsync().GetAwaiter().GetResult();
         }
 
+        /*
         static async Task RunAsync()
         {
             // Update port # in the following line.
-            client.BaseAddress = new Uri("https://gameserver.azurewebsites.net/"); //api /player/");
+            client.BaseAddress = new Uri("https://battlex2019.azurewebsites.net/"); //api /player/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue(mediaType));
@@ -191,6 +208,32 @@ namespace GameClient
 
                 Console.WriteLine("Web API Client says: \"GoodBy!\"");
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            Console.ReadLine();
+        }
+        */
+
+        static async Task RunAsync()
+        {
+            // Update port # in the following line.
+            client.BaseAddress = new Uri("https://battlex2019.azurewebsites.net/"); //api /player/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue(mediaType));
+
+            try
+            {
+                Console.WriteLine("0)\tGet all player");
+                ICollection<string> valueList = await GetAllValuesAsync(client.BaseAddress.PathAndQuery);
+                foreach (string p in valueList)
+                {
+                    Console.WriteLine(p);
+                }
             }
             catch (Exception e)
             {

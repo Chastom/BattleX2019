@@ -29,6 +29,7 @@ namespace GameServer
         {
 
             services.AddDbContext<PlayerContext>(opt => opt.UseInMemoryDatabase("PlayersList"));
+            services.AddDbContext<BattleArenaContext>(opt => opt.UseInMemoryDatabase("BattleArenaList"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

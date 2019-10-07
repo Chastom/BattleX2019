@@ -8,15 +8,15 @@ namespace GameServer.Models
     public class BattleArena
     {
         public int id { get; set; }
-        private static BattleArena obj1;
-        private static BattleArena obj2;
-        public static List<BattleArena> objects = new List<BattleArena>();
-        private BattleArena()
+        //private static BattleArena obj1;
+        //private static BattleArena obj2;
+        //public static List<BattleArena> objects = new List<BattleArena>();
+        public BattleArena()
         {
             
         }
 
-        public static List<BattleArena> getInstance()
+        /*public static List<BattleArena> getInstance()
         {
             if (obj1 == null && obj2 == null)
             {
@@ -26,6 +26,6 @@ namespace GameServer.Models
                 objects.Add(obj2);
             }
             return objects;
-        }
+        }*/
     }
 }

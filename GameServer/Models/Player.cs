@@ -3,15 +3,13 @@ namespace GameServer.Models
 {
     public class Player
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public long Score { get; set; }
-        public long PosX { get; set; }
-        public long PosY { get; set; }
 
-        public Player()
+        public Player(int id, string name)
         {
-
+            this.Id = id;
+            this.Name = name;
         }
     }
 }

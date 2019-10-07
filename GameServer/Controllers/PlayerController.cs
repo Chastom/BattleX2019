@@ -26,19 +26,19 @@ namespace GameServer.Controllers
         {
             _context = context;
 
-            if (_context.Players.Count() == 0)
-            {
+            //if (_context.Players.Count() == 0)
+            //{
                 // Create a new Player if collection is empty,
                 // which means you can't delete all Players.
-                for (int i = 0; i < 10; i++)
-                {
-                    Qty++;
-                    Player p = new Player { Name = "Player-" + Qty, Score = 0, PosX = 0, PosY = 0 };
-                    _context.Players.Add(p);
-                }
+                //for (int i = 0; i < 10; i++)
+                //{
+                //    Qty++;
+                //    Player p = new Player { Name = "Player-" + Qty, Score = 0, PosX = 0, PosY = 0 };
+                //    _context.Players.Add(p);
+               // }
             
-                _context.SaveChanges();
-            }
+                //_context.SaveChanges();
+           // }
         }
 
 
@@ -84,9 +84,6 @@ namespace GameServer.Controllers
             }
 
             pp.Name = p.Name;
-            pp.PosX = p.PosX;
-            pp.PosY = p.PosY;
-            pp.Score = p.Score;
 
             _context.Players.Update(pp);
             _context.SaveChanges();
@@ -95,17 +92,16 @@ namespace GameServer.Controllers
         }
 
         [HttpPatch]
-        public IActionResult PartialUpdate([FromBody] Coordinates request)
+        public IActionResult PartialUpdate([FromBody] Ship request)
         {
-            var player = _context.Players.Find(request.Id);
+            var player = _context.Players.Find(request.id);
             if (player == null)
             {
                 return NotFound();
             }
             else
             {
-                player.PosX = request.PosX;
-                player.PosY = request.PosY;
+                //Add some ship logic here
 
                 _context.Players.Update(player);
                 _context.SaveChanges();

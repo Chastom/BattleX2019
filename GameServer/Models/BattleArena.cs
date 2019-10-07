@@ -8,24 +8,12 @@ namespace GameServer.Models
     public class BattleArena
     {
         public int id { get; set; }
-        //private static BattleArena obj1;
-        //private static BattleArena obj2;
-        //public static List<BattleArena> objects = new List<BattleArena>();
+        public Player player1 { get; set; }
+        public Player player2 { get; set; }
+        public Boolean bothConnected { get; set; } = false;
         public BattleArena()
         {
             
         }
-
-        /*public static List<BattleArena> getInstance()
-        {
-            if (obj1 == null && obj2 == null)
-            {
-                obj1 = new BattleArena();
-                obj2 = new BattleArena();
-                objects.Add(obj1);
-                objects.Add(obj2);
-            }
-            return objects;
-        }*/
     }
 }

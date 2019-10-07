@@ -12,7 +12,6 @@ namespace GameServer.Controllers
     [ApiController]
     public class BAController : ControllerBase
     {
-        public static BattleArena arena = null;
         private readonly BattleArenaContext _context;
         public int ArenaCount { get; set; } = 0;
 
@@ -56,15 +55,25 @@ namespace GameServer.Controllers
         //This should signal the server that a player has connected. Only one instance of a battle arena should be created so no idea how to assign it to the second player once he connects
         // POST api/BA/playerID
         [HttpPost("{id}", Name = "PostBA")]
-        public ActionResult<BattleArena> Create(int id)
+        public ActionResult<BattleArena> Create(int id, [FromBody] string playerName)
         {
             if (_context.arenas.Count() >= 1)
             {
                 BattleArena foundArena = _context.arenas.FirstOrDefault();
-                return CreatedAtRoute("GetBA", foundArena.id);
+                Player secondPlayer = new Player(id, playerName);
+                foundArena.player1 = foundArena.player1;
+                foundArena.player2 = secondPlayer;
+                foundArena.bothConnected = true;
+
+                _context.arenas.Update(foundArena);
+                _context.SaveChanges();
+
+                //return RedirectToAction("GET", "Player");
+                return CreatedAtRoute("GetBA", new { id = foundArena.id}, foundArena);
                 //return NotFound("Battle arena wasn't created because it aleady exists");
             }
-            BattleArena arena = new BattleArena() { id = 1 };
+            Player somePlayer = new Player(id, playerName);
+            BattleArena arena = new BattleArena() { id = 1, player1 = somePlayer };
             _context.arenas.Add(arena);
             _context.SaveChanges();
 
